@@ -1,0 +1,6 @@
+framework module Pods_DynamsoftbarcodereaderSDK_Example {
+  umbrella header "Pods-DynamsoftbarcodereaderSDK_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

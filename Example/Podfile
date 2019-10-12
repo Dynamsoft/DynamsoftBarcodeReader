@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'DynamsoftbarcodereaderSDK_Example' do
+  pod 'DynamsoftbarcodereaderSDK', :path => '../'
+
+  target 'DynamsoftbarcodereaderSDK_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

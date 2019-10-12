@@ -1,0 +1,6 @@
+framework module DynamsoftbarcodereaderSDK {
+  umbrella header "DynamsoftbarcodereaderSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}
