@@ -16,4 +16,4 @@ FOUNDATION_EXPORT const unsigned char DynamsoftBarcodeSDKVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <DynamsoftBarcodeSDK/PublicHeader.h>
 
-#import <DynamsoftBarcodeReader/DynamsoftBarcodeReader.h>
+//#import <DynamsoftBarcodeReader/DynamsoftBarcodeReader.h>
