@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DynamsoftBarcodeReaderFramework'
-  s.version          = '7.2.1'
-  s.summary          = 'DynamsoftBarcodeReader SDK 7.2.1'
+  s.version          = '7.2.2'
+  s.summary          = 'DynamsoftBarcodeReader SDK 7.2.2'
 
   s.description      = <<-DESC
 DynamsoftBarcodeReader SDK is best !
@@ -22,13 +22,7 @@ DynamsoftBarcodeReader SDK is best !
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'DynamsoftBarcodeReader.framework/*','DynamsoftBarcodeReader.framework/**/*'
-  
-  # s.resource_bundles = {
-  #   'DynamsoftBarcodeReader' => ['DynamsoftBarcodeReader/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
+  s.source_files = 'DynamsoftBarcodeReader.framework/**/*', 'DynamsoftBarcodeReader.framework/*'
+  s.public_header_files = 'DynamsoftBarcodeReader.framework/Headers/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
