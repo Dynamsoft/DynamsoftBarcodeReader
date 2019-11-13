@@ -22,7 +22,7 @@ DynamsoftBarcodeReader SDK is best !
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'DynamsoftBarcodeReader.framework/*','DynamsoftBarcodeReader.framework/Headers/*','DynamsoftBarcodeReader.framework/Modules/*'
+  s.source_files = 'DynamsoftBarcodeReader.framework/*','DynamsoftBarcodeReader.framework/**/*'
   
   # s.resource_bundles = {
   #   'DynamsoftBarcodeReader' => ['DynamsoftBarcodeReader/Assets/*.png']
