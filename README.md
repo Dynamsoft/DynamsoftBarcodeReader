@@ -14,5 +14,5 @@ pod 'DynamsoftBarcodeReaderFramework'
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## License Agreement
-https://www.dynamsoft.com/Products/barcode-reader-license-agreement.aspx#javascript
+https://www.dynamsoft.com/Products/barcode-reader-license-agreement.aspx#mobile
 
