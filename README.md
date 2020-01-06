@@ -6,7 +6,7 @@ DynamsoftbarcodereaderSDK is available through [CocoaPods](https://cocoapods.org
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'DynamsoftBarcodeReaderFramework'
+ pod 'DynamsoftBarcodeReaderFramework'
 ```
 
 ## Example
