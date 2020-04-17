@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = 'DynamsoftBarcodeReaderFramework'
-  s.version          = '7.3.0'
-  s.summary          = 'DynamsoftBarcodeReader SDK 7.3.0'
+  s.version          = '7.4.0'
+  s.summary          = 'DynamsoftBarcodeReader SDK 7.4.0'
 
   s.description      = <<-DESC
 DynamsoftBarcodeReader SDK is best !
