@@ -214,30 +214,37 @@ typedef NS_ENUM(NSInteger, DLSErrorCode)
 typedef NS_OPTIONS(NSInteger , EnumBarcodeFormat2)
 {
     /** No barcode format in BarcodeFormat group 2 */
-    EnumBarcodeFormat2NULL                   = 0x00,
+    EnumBarcodeFormat2NULL NS_SWIFT_NAME(Null) = 0x00,
     
     /** Nonstandard barcode */
     EnumBarcodeFormat2NONSTANDARDBARCODE     = 0x01,
     
-    /** DotCode Barcode. */
+    /** DotCode Barcode.
+     When you set this barcode format, the library will automatically add EnumLocalizationModeStatisticsMarks to EnumLocalizationMode if you don't set it,*/
     EnumBarcodeFormat2DOTCODE                = 0x00000002,
     
-    /** Combined value of EnumBarcodeFormat2USPSINTELLIGENTMAIL, EnumBarcodeFormat2POSTNET, EnumBarcodeFormat2PLANET, EnumBarcodeFormat2AUSTRALIANPOST, EnumBarcodeFormat2RM4SCC. */
+    /** Combined value of EnumBarcodeFormat2USPSINTELLIGENTMAIL, EnumBarcodeFormat2POSTNET, EnumBarcodeFormat2PLANET, EnumBarcodeFormat2AUSTRALIANPOST, EnumBarcodeFormat2RM4SCC.
+     When you set this barcode format, the library will automatically add EnumLocalizationModeStatisticsPostalCode to EnumLocalizationMode if you don't set it,*/
     EnumBarcodeFormat2POSTALCODE             = 0x01F00000,
     
-    /** USPS Intelligent Mail. */
+    /** USPS Intelligent Mail.
+     When you set this barcode format, the library will automatically add EnumLocalizationModeStatisticsPostalCode to EnumLocalizationMode if you don't set it,*/
     EnumBarcodeFormat2USPSINTELLIGENTMAIL    = 0x00100000,
     
-    /** Postnet. */
+    /** Postnet.
+     When you set this barcode format, the library will automatically add EnumLocalizationModeStatisticsPostalCode to EnumLocalizationMode if you don't set it,*/
     EnumBarcodeFormat2POSTNET                = 0x00200000,
     
-    /** Planet. */
+    /** Planet.
+     When you set this barcode format, the library will automatically add EnumLocalizationModeStatisticsPostalCode to EnumLocalizationMode if you don't set it,*/
     EnumBarcodeFormat2PLANET                 = 0x00400000,
     
-    /** Australian Post. */
+    /** Australian Post.
+     When you set this barcode format, the library will automatically add EnumLocalizationModeStatisticsPostalCode to EnumLocalizationMode if you don't set it,*/
     EnumBarcodeFormat2AUSTRALIANPOST         = 0x00800000,
     
-    /** Royal Mail 4-State Customer Barcode. */
+    /** Royal Mail 4-State Customer Barcode.
+     When you set this barcode format, the library will automatically add EnumLocalizationModeStatisticsPostalCode to EnumLocalizationMode if you don't set it,*/
     EnumBarcodeFormat2RM4SCC                 = 0x01000000
 };
 
@@ -250,7 +257,7 @@ typedef NS_OPTIONS(NSInteger , EnumBarcodeFormat)
 {
 
     /** No barcode format in BarcodeFormat group 1*/
-    EnumBarcodeFormatNULL                = 0x0,
+    EnumBarcodeFormatNULL NS_SWIFT_NAME(Null) = 0x0,
     
 	/** Code 39 */
     EnumBarcodeFormatCODE39     		 = 0x1,
@@ -351,37 +358,37 @@ typedef NS_OPTIONS(NSInteger , EnumBarcodeFormat)
 typedef NS_ENUM(NSInteger, EnumImagePixelFormat) 
 {
 
-    /** 0:black, 1:white */
+	/** 0:black, 1:white */
     EnumImagePixelFormatBinary         = 0,
 
-    /** 0:white, 1:black */
+	/** 0:white, 1:black */
     EnumImagePixelFormatBinaryInverted = 1,
 
-    /** 8-bit gray */
+	/** 8-bit gray */
     EnumImagePixelFormatGrayScaled     = 2,
 
-    /** NV21 */
+	/** NV21 */
     EnumImagePixelFormatNV21 		   = 3,
 
-    /** 16bit with RGB channel order stored in memory from high to low address*/
+	/** 16bit with RGB channel order stored in memory from high to low address*/
     EnumImagePixelFormatRGB_565 	   = 4,
 
-    /** 16bit with RGB channel order stored in memory from high to low address*/
+	/** 16bit with RGB channel order stored in memory from high to low address*/
     EnumImagePixelFormatRGB_555 	   = 5,
 
-    /** 24bit with RGB channel order stored in memory from high to low address*/
+	/** 24bit with RGB channel order stored in memory from high to low address*/
     EnumImagePixelFormatRGB_888 	   = 6,
 
-    /** 32bit with ARGB channel order stored in memory from high to low address*/
+	/** 32bit with ARGB channel order stored in memory from high to low address*/
     EnumImagePixelFormatARGB_8888      = 7,
 
     /** 48bit with RGB channel order stored in memory from high to low address*/
     EnumImagePixelFormatRGB_161616     = 8,
 
     /** 64bit with ARGB channel order stored in memory from high to low address*/
-    EnumImagePixelFormatARGB_16161616  = 9,
+    EnumImagePixelFormatARGB_16161616   = 9,
 
-    /** 32bit with ABGR channel order stored in memory from high to low address*/
+    /** 32bit with ABGB channel order stored in memory from high to low address */
     EnumImagePixelFormatABGR_8888       = 10,
     
     /** 64bit with ABGR channel order stored in memory from high to low address*/
@@ -404,7 +411,10 @@ typedef NS_ENUM(NSInteger, EnumBarcodeComplementMode)
 	EnumBarcodeComplementModeGeneral = 0x02,
 
 	/**Skips the barcode complement. */
-	EnumBarcodeComplementModeSkip 	 = 0x00
+	EnumBarcodeComplementModeSkip 	 = 0x00,
+    
+    /** Reserved setting for barcode complement mode. */
+    EnumBarcodeComplementModeRev     = -2147483648
 };
 
 /**
@@ -432,7 +442,10 @@ typedef NS_ENUM(NSInteger, EnumBarcodeColourMode)
 	EnumBarcodeColourModeDarkOnLightDarkSurrounding = 0x20,
 
 	/** Skips the barcode colour operation.  */
-	EnumBarcodeColourModeSkip 						= 0x00
+	EnumBarcodeColourModeSkip 						= 0x00,
+    
+    /** Reserved setting for barcode colour mode. */
+    EnumBarcodeColourModeRev                        = -2147483648
 };
 
 /**
@@ -447,12 +460,18 @@ typedef NS_ENUM(NSInteger, EnumBinarizationMode)
 	/** Binarizes the image based on the local block. Check @ref BM for available argument settings.*/
 	EnumBinarizationModeLocalBlock = 0x02,
 
-	/** Skips binarization. */
-	EnumBinarizationModeSkip       = 0x00
+    /** Performs image binarization based on the given threshold. Check @ref BM for available argument settings.*/
+    EnumBinarizationModeThreshold  = 0x04,
+    
+	/** Skips binarization.*/
+	EnumBinarizationModeSkip       = 0x00,
+    
+    /** Reserved setting for binarization mode.*/
+    EnumBinarizationModeRev        = -2147483648
 };
 
 /**
-* Describes the colour clustering mode.
+* Describes the colour clustering mode.Not supported yet.
 * @enum EnumColourClusteringMode
 */
 typedef NS_ENUM(NSInteger, EnumColourClusteringMode)
@@ -464,7 +483,10 @@ typedef NS_ENUM(NSInteger, EnumColourClusteringMode)
 	EnumColourClusteringModeGeneralHSV = 0x02,
 
 	/** Skips colour clustering. */
-	EnumColourClusteringModeSkip 	   = 0x00
+	EnumColourClusteringModeSkip 	   = 0x00,
+    
+    /** Reserved setting for colour clustering mode. */
+    EnumColourClusteringModeRev        = -2147483648
 };
 
 /**
@@ -477,7 +499,10 @@ typedef NS_ENUM(NSInteger, EnumColourConversionMode)
 	EnumColourConversionModeGeneral = 0x01,
 
 	/** Skips colour conversion. */
-	EnumColourConversionModeSkip 	= 0x00
+	EnumColourConversionModeSkip 	= 0x00,
+    
+    /** Reserved setting for colour conversion mode. */
+    EnumColourConversionModeRev        = -2147483648
 };
 
 /**
@@ -489,11 +514,15 @@ typedef NS_ENUM(NSInteger, EnumDPMCodeReadingMode)
 	/** Not supported yet. */
 	EnumDPMCodeReadingModeAuto    = 0x01,
 
-	/** Reads DPM code using the general algorithm. */
+	/** Reads DPM code using the general algorithm.
+     When this mode is set, the library will automatically add EnumLocalizationModeStatisticsMarks to EnumLocalizationMode and add a EnumBinarizationModeLocalBlock to EnumBinarizationMode which is with arguments: BlockSizeX=0, BlockSizeY=0, EnableFillBinaryVacancy=0, ImagePreprocessingModesIndex=1, ThreshValueCoefficient=15 if you dosen't set them.*/
 	EnumDPMCodeReadingModeGeneral = 0x02,
 
 	/** Skips the DPM code reading. */
-	EnumDPMCodeReadingModeSkip    = 0x00
+	EnumDPMCodeReadingModeSkip    = 0x00,
+    
+    /** Reserved setting for DPM code reading mode. */
+    EnumDPMCodeReadingModeRev     = -2147483648
 };
 
 /**
@@ -529,12 +558,15 @@ typedef NS_ENUM(NSInteger, EnumImagePreprocessingMode)
 
 	/** Preprocesses the image using the sharpening and smoothing algorithm. Check @ref IPM for available argument settings.*/
 	EnumImagePreprocessingModeSharpenSmooth = 0x10,
-
-	/** Preprocesses the image using the morphology algorithm. Check @ref IPM for available argument settings.*/
-    	EnumImagePreprocessingModeMorphology    = 0x20,
-
+    
+    /** Preprocesses the image using the morphology algorithm. Check @ref IPM for available argument settings.*/
+    EnumImagePreprocessingModeMorphology    = 0x20,
+    
 	/** Skips image preprocessing */
-	EnumImagePreprocessingModeSkip 		= 0x00
+	EnumImagePreprocessingModeSkip 			= 0x00,
+    
+    /** Reserved setting for image preprocessing mode. */
+    EnumImagePreprocessingModeRev           = -2147483648
 };
 
 /**
@@ -616,8 +648,14 @@ typedef NS_ENUM(NSInteger, EnumLocalizationMode)
     /** Localizes barcodes by groups of connected blocks and lines. This is optimized for postal codes.*/
     EnumLocalizationModeStatisticsPostalCode = 0x40,
     
+    /** Localizes barcodes from the centre of the image. Check @ref LM for available argument settings. */
+    EnumLocalizationModeCentre = 0x80,
+    
 	/** Skips the localization. */
-	EnumLocalizationModeSkip = 0x00
+	EnumLocalizationModeSkip = 0x00,
+    
+    /** Reserved setting for localization mode. */
+    EnumLocalizationModeRev = -2147483648
 };
 
 /**
@@ -661,7 +699,10 @@ typedef NS_ENUM(NSInteger, EnumRegionPredetectionMode)
 	EnumRegionPredetectionModeGeneralHSVContrast 	= 0x10,
 
 	/** Skips region detection. */
-	EnumRegionPredetectionModeSkip 					= 0x00
+	EnumRegionPredetectionModeSkip 					= 0x00,
+    
+    /** Reserved setting for  region detection mode. */
+    EnumRegionPredetectionModeRev                   = -2147483648
 };
 
 /**
@@ -677,7 +718,10 @@ typedef NS_ENUM(NSInteger, EnumDeformationResistingMode)
 	EnumDeformationResistingModeGeneral = 0x02,
 
 	/** Skips the deformation resisting operation. */
-	EnumDeformationResistingModeSkip 	= 0x00
+	EnumDeformationResistingModeSkip 	= 0x00,
+    
+    /** Reserved setting for  deformation resisting mode. */
+    EnumDeformationResistingModeRev     = -2147483648
 };
 
 /**
@@ -740,7 +784,10 @@ typedef NS_ENUM(NSInteger, EnumTextAssistedCorrectionMode)
 	EnumTextAssistedCorrectionModeVerifyingPatching = 0x04,
 
 	/** Skips text assisted correction. */
-	EnumTextAssistedCorrectionModeSkip 				= 0x00
+	EnumTextAssistedCorrectionModeSkip 				= 0x00,
+    
+    /** Reserved setting for  text assisted correction mode. */
+    EnumTextAssistedCorrectionModeRev               = -2147483648
 };
 
 /**
@@ -756,7 +803,10 @@ typedef NS_ENUM(NSInteger, EnumTextFilterMode)
 	EnumTextFilterModeGeneralContour = 0x02,
 
 	/** Skips text filtering. */
-	EnumTextFilterModeSkip 			 = 0x00
+	EnumTextFilterModeSkip 			 = 0x00,
+    
+    /** Reserved setting for  text filter mode. */
+    EnumTextFilterModeRev            = -2147483648
 };
 
 /**
@@ -775,7 +825,10 @@ typedef NS_ENUM(NSInteger, EnumTextResultOrderMode)
 	EnumTextResultOrderModeFormat     = 0x04,
 
 	/** Skips the ordering operation. */
-	EnumTextResultOrderModeSkip       = 0x00
+	EnumTextResultOrderModeSkip       = 0x00,
+    
+    /** Reserved setting for  text result order mode. */
+    EnumTextResultOrderModeRev        = -2147483648
 };
 
 /**
@@ -791,7 +844,10 @@ typedef NS_ENUM(NSInteger, EnumTextureDetectionMode)
 	EnumTextureDetectionModeGeneralWidthConcentration = 0X02,
 
 	/** Skips texture detection. */
-	EnumTextureDetectionModeSkip = 0x00
+	EnumTextureDetectionModeSkip = 0x00,
+    
+    /** Reserved setting for texture detection mode. */
+    EnumTextureDetectionModeRev = -2147483648
 };
 
 /**
@@ -807,7 +863,10 @@ typedef NS_ENUM(NSInteger, EnumGrayscaleTransformationMode)
 	EnumGrayscaleTransformationModeOriginal = 0x02,
 
 	/** Skips grayscale transformation. */
-	EnumGrayscaleTransformationModeSkip 	= 0x00
+	EnumGrayscaleTransformationModeSkip 	= 0x00,
+    
+    /** Reserved setting for grayscale transformation mode. */
+    EnumGrayscaleTransformationModeRev      = -2147483648
 };
 
 /**
@@ -875,8 +934,10 @@ typedef NS_ENUM(NSInteger,EnumAccompanyingTextRecognitionMode)
     EnumAccompanyingTextRecognitionModeGeneral      = 0x01,
     
     /** Skips the accompanying text recognition.*/
-    EnumAccompanyingTextRecognitionModeSkip         = 0x00
+    EnumAccompanyingTextRecognitionModeSkip         = 0x00,
     
+    /** Reserved setting for accompanying text recognition mode. */
+    EnumAccompanyingTextRecognitionModeRev          = -2147483648
 };
 
 /**
@@ -895,8 +956,10 @@ typedef NS_ENUM(NSInteger,EnumScaleUpMode)
     EnumScaleUpModeNearestNeighbourInterpolation    = 0x04,
     
     /** Skip the scale-up process.*/
-    EnumScaleUpModeSkip                             = 0x00
+    EnumScaleUpModeSkip                             = 0x00,
     
+    /** Reserved setting for scale-up mode. */
+    EnumScaleUpModeRev                              = -2147483648
 };
 
 /**
@@ -932,8 +995,12 @@ typedef NS_ENUM(NSInteger,EnumPDFReadingMode)
     EnumPDFReadingModeVector =  0x02,
     
     /** Converts the PDF file to image(s) first, then perform barcode recognition.*/
-    EnumPDFReadingModeRaster =  0x04
+    EnumPDFReadingModeRaster =  0x04,
+    
+    /** Reserved setting for PDF reading mode. */
+    EnumPDFReadingModeRev    = -2147483648
 };
+
 /**
  * @} defgroup Enum Enumerations
  */
@@ -1265,7 +1332,7 @@ typedef NS_ENUM(NSInteger,EnumPDFReadingMode)
 /** Sets the threshold for image shrinking.
 *
 * @par Value range:
-* 	    [512, 0x7fffffff]
+* 	    [8, 0x7fffffff]
 * @par Default value:
 * 	    2300
 * @par Remarks:
@@ -1527,7 +1594,7 @@ typedef NS_ENUM(NSInteger,EnumPDFReadingMode)
  * @par Value range:
  *         Any one of the ClarityCalculationMethod Enumeration items.
  * @par Default value:
- *         ECCM_CONTRAST
+ *         EnumClarityCalculationMethodContrast
  * @sa EnumClarityCalculationMethod
 */
 @property (nonatomic, assign) EnumClarityCalculationMethod clarityCalculationMethod;
@@ -1537,7 +1604,7 @@ typedef NS_ENUM(NSInteger,EnumPDFReadingMode)
  * @par Value range:
  *         Any one of the ClarityFilterMode Enumeration items.
  * @par Default value:
- *         CFM_GENERAL
+ *         EnumClarityFilterModeGeneral
  * @sa EnumClarityFilterMode
 */
 @property (nonatomic, assign) EnumClarityFilterMode clarityFilterMode;
@@ -1709,6 +1776,21 @@ typedef NS_ENUM(NSInteger,EnumPDFReadingMode)
 
 /** The check digit chars in a byte array */
 @property (nonatomic, nullable) NSData* checkDigitBytes;
+
+/** The position of the start pattern relative to the barcode location.
+ Index 0: X coordinate of the start position in percentage value,
+ Index 1: X coordinate of the end position in percentage value.*/
+@property (nonatomic, nonnull) NSArray* startPatternRange;
+
+/** The position of the middle pattern relative to the barcode location.
+ Index 0: X coordinate of the start position in percentage value,
+ Index 1: X coordinate of the end position in percentage value.*/
+@property (nonatomic, nonnull) NSArray* middlePatternRange;
+
+/** The position of the end pattern relative to the barcode location.
+ Index 0: X coordinate of the start position in percentage value,
+ Index 1: X coordinate of the end position in percentage value.*/
+@property (nonatomic, nonnull) NSArray* endPatternRange;
 
 @end
 
@@ -1905,6 +1987,9 @@ typedef NS_ENUM(NSInteger,EnumPDFReadingMode)
 
 /** The ID of the operated frame */
 @property (nonatomic, assign) NSInteger frameId;
+
+/** The index of ForeAndBackgroudColour argument used for RegionPredetectionMode */
+@property (nonatomic, assign) NSInteger rpmColourArgumentIndex;
 
 @end
 
@@ -2205,7 +2290,6 @@ typedef NS_ENUM(NSInteger,EnumPDFReadingMode)
 
 - (instancetype _Nonnull)initWithLicenseFromServer:(NSString* _Nullable)licenseSeServer licenseKey:(NSString* _Nonnull)licenseKey verificationDelegate:(id _Nullable)connectionDelegate;
 
-
 /**
  * Outputs the license content as an encrypted string from the license server to be used for offline license verification.
  *
@@ -2228,6 +2312,32 @@ typedef NS_ENUM(NSInteger,EnumPDFReadingMode)
  * @endcode
  */	
 - (NSString *_Nullable)outputLicenseToString:(NSError* _Nullable * _Nullable)error;
+
+/**
+ * Destroys an instance of Dynamsoft Barcode Reader.
+ *
+ * @par Code Snippet:
+ * @code
+       DynamsoftBarcodeReader *barcodeReader;
+       barcodeReader = [[DynamsoftBarcodeReader alloc] initWithLicense:@"t0260NwAAAHV***************"];
+       [barcodeReader dispose];
+ * @endcode
+ */
+- (void)dispose;
+
+/**
+ * Returns the version info of the SDK.
+ *
+ * @return The version info string.
+ *
+ * @par Code Snippet:
+ * @code
+        DynamsoftBarcodeReader *barcodeReader;
+        barcodeReader = [[DynamsoftBarcodeReader alloc] initWithLicense:@"t0260NwAAAHV***************"];
+        NSString* versionInfo = [barcodeReader getVersion];
+ * @endcode
+ */
+- (NSString *_Nullable)getVersion;
 
 /**
  * @}
@@ -2793,7 +2903,7 @@ typedef NS_ENUM(NSInteger,EnumPDFReadingMode)
 
 /**
  * Returns intermediate results containing the original image, the colour clustered image, the binarized image, contours, lines, text blocks, etc.
- * 
+ *
  * @return Returns  intermediate result array.
  *
  * @par Code Snippet:
